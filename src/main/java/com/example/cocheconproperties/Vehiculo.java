@@ -5,6 +5,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.util.Random;
@@ -15,12 +17,13 @@ public class Vehiculo extends ImageView {
     private double velocidadMaxima = 5.0;
     private boolean enMovimiento = false;
     private Random random = new Random();
+    private AnimationTimer timer;
 
-    public Vehiculo(String rutaImagen,double tamañoPantalla) {
+    public Vehiculo(String rutaImagen, AnchorPane root) {
         super(rutaImagen);
         setVelocidadAleatoria();
-        this.setFitWidth(300);
-        this.setFitHeight(200);
+        this.setFitWidth(150);
+        this.setFitHeight(75);
     }
 
     void setVelocidadAleatoria() {
@@ -30,19 +33,24 @@ public class Vehiculo extends ImageView {
     public void mover() {
         if (!enMovimiento) {
             enMovimiento = true;
-            AnimationTimer timer = new AnimationTimer() {
+            timer = new AnimationTimer() {
                 @Override
                 public void handle(long now) {
                     double nextX = getLayoutX() + velocidadX;
+                    double paneWidth = ((Pane)getParent()).getWidth();
                     // Check if the next X position is within the screen bounds
-                    if (nextX <= getParent().getBoundsInLocal().getMaxX() - getImage().getWidth()) {
-                        setLayoutX(nextX);
-                    } else {
-                        // If the next X position exceeds the screen bounds, stop the vehicle
+                    if (nextX + getImage().getWidth() >= paneWidth) {
+                        setLayoutX(paneWidth - getImage().getWidth());
+                        System.out.println(nextX);
                         detener();
+                    } else {
+                        // Adjust X position to ensure the vehicle doesn't go beyond the screen edge
+                        setLayoutX(nextX);
+                        // Stop the vehicle
+
                     }
                     // Randomly accelerate the vehicle
-                    if (random.nextInt(100) < 5) { // Adjust probability as needed (5% chance here)
+                    if (random.nextInt(100) < 1) { // Adjust probability as needed (5% chance here)
                         acelerar();
                     }
                 }
@@ -70,6 +78,9 @@ public class Vehiculo extends ImageView {
     public void detener() {
         velocidadX = 0;
         enMovimiento = false;
+        if (timer != null) { // Check if timer is initialized before stopping
+            timer.stop();
+        }
     }
 
     public double getVelocidadX() {

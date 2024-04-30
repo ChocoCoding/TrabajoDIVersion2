@@ -27,22 +27,25 @@ public class CarrerasController implements Initializable {
     private Button startButton;
     @FXML
     private Button restartButton;
+    @FXML
+    private Button btnAcelerar;
+    @FXML
+    private Button btnStop;
 
     private Vehiculo vehiculo1;
     private Vehiculo vehiculo2;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        vehiculo1 = new Vehiculo("C:\\Users\\a16gonzalocd\\IdeaProjects\\CocheConProperties\\src\\main\\resources\\img\\coche1.png",root.getWidth());
-        vehiculo2 = new Vehiculo("C:\\Users\\a16gonzalocd\\IdeaProjects\\CocheConProperties\\src\\main\\resources\\img\\coche1.png",root.getWidth());
-
+        vehiculo1 = new Vehiculo("C:\\Users\\34645\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png",root);
+        vehiculo2 = new Vehiculo("C:\\Users\\34645\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png",root);
 
         double startY = 100; // Adjust this value as needed
-        double spacing = 20; // Adjust the spacing between vehicles as needed
-        vehiculo1.setLayoutX(10); // Adjust X position as needed
-        vehiculo1.setLayoutY(startY);
-        vehiculo2.setLayoutX(10); // Adjust X position as needed
-        vehiculo2.setLayoutY(startY + vehiculo1.getImage().getHeight() + spacing);
+        double spacing = 10; // Adjust the spacing between vehicles as needed
+        vehiculo1.setTranslateX(10); // Adjust X position as needed
+        vehiculo1.setTranslateY(startY);
+        vehiculo2.setTranslateX(10); // Adjust X position as needed
+        vehiculo2.setTranslateY(startY + 150 + spacing);
 
         root.getChildren().addAll(vehiculo1, vehiculo2);
     }
@@ -61,4 +64,16 @@ public class CarrerasController implements Initializable {
         vehiculo2.setVelocidadAleatoria();
     }
 
+    @FXML
+    private void onStopButtonClicked(){
+        vehiculo1.detener();
+        vehiculo2.detener();
+
+    }
+
+    @FXML
+    private void onAcelerarButtonClicked(){
+        vehiculo1.acelerar();
+        vehiculo2.acelerar();
+    }
 }
