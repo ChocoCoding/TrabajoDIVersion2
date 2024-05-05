@@ -3,11 +3,13 @@ package com.example.cocheconproperties;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,9 +26,9 @@ public class CarrerasController implements Initializable {
     private ImageView imageViewCoche2;
 
     @FXML
-    private Button startButton;
+    private Button btnStart;
     @FXML
-    private Button restartButton;
+    private Button btnRestart;
     @FXML
     private Button btnAcelerar;
     @FXML
@@ -37,8 +39,10 @@ public class CarrerasController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        vehiculo1 = new Vehiculo("C:\\Users\\34645\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png",root);
-        vehiculo2 = new Vehiculo("C:\\Users\\34645\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png",root);
+        String rutaAbsoluta = new File("coche1.png").getAbsolutePath();
+        System.out.println(rutaAbsoluta);
+        vehiculo1 = new Vehiculo("C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png",root);
+        vehiculo2 = new Vehiculo("C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png",root);
 
         double startY = 100; // Adjust this value as needed
         double spacing = 10; // Adjust the spacing between vehicles as needed

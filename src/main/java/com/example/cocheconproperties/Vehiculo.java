@@ -1,20 +1,16 @@
 package com.example.cocheconproperties;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.util.Duration;
-
 import java.util.Random;
 
 public class Vehiculo extends ImageView {
 
     private double velocidadX;
-    private double velocidadMaxima = 5.0;
+    private double velocidadMaxima = 10.0;
     private boolean enMovimiento = false;
     private Random random = new Random();
     private AnimationTimer timer;
@@ -46,13 +42,11 @@ public class Vehiculo extends ImageView {
                     } else {
                         // Adjust X position to ensure the vehicle doesn't go beyond the screen edge
                         setLayoutX(nextX);
-                        // Stop the vehicle
-
                     }
                     // Randomly accelerate the vehicle
-                    if (random.nextInt(100) < 1) { // Adjust probability as needed (5% chance here)
-                        acelerar();
-                    }
+                        if (random.nextInt(100) < 1) { // Adjust probability as needed (5% chance here)
+                            acelerar();
+                        }
                 }
             };
             timer.start();
@@ -60,7 +54,8 @@ public class Vehiculo extends ImageView {
     }
 
     public void acelerar() {
-        velocidadX += random.nextDouble() * 2; // Randomly increase velocity (0 to 2)
+        velocidadX += random.nextDouble() * 3; // Randomly increase velocity (0 to 2)
+        System.out.println(velocidadX);
         if (velocidadX > velocidadMaxima) {
             velocidadX = velocidadMaxima;
         }

@@ -11,7 +11,8 @@ public class CarrerasApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CarrerasApplication.class.getResource("vista-carreras.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(),1400,800);
+        Scene scene = new Scene(fxmlLoader.load(),1400,500);
+        scene.getStylesheets().add("estilos.css");
         stage.setTitle("Carreras de Coches");
         stage.setScene(scene);
         stage.show();

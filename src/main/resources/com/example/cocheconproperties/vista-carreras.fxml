@@ -4,16 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cocheconproperties.CarrerasController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cocheconproperties.CarrerasController">
    <children>
-      <Button fx:id="btnStart" layoutX="245.0" layoutY="650.0" mnemonicParsing="false" onAction="#onStartButtonClicked" text="Start" />
-      <Button fx:id="btnRestart" layoutX="355.0" layoutY="650.0" mnemonicParsing="false" onAction="#onRestartButtonClicked" text="Restart" />
+      <Button fx:id="btnStart" layoutX="227.0" layoutY="426.0" mnemonicParsing="false" onAction="#onStartButtonClicked" text="Start" />
+      <Button fx:id="btnRestart" layoutX="656.0" layoutY="426.0" mnemonicParsing="false" onAction="#onRestartButtonClicked" text="Restart" />
       <Label layoutX="463.0" layoutY="41.0" text="Primera posición: ">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnStop" layoutX="463.0" layoutY="650.0" mnemonicParsing="false" onAction="#onStopButtonClicked" text="Stop" />
-      <Button fx:id="btnAcelerar" layoutX="565.0" layoutY="650.0" mnemonicParsing="false" onAction="#onAcelerarButtonClicked" text="Acelerar" />
+      <Button fx:id="btnStop" layoutX="366.0" layoutY="426.0" mnemonicParsing="false" onAction="#onStopButtonClicked" text="Stop" />
+      <Button fx:id="btnAcelerar" layoutX="505.0" layoutY="426.0" mnemonicParsing="false" onAction="#onAcelerarButtonClicked" text="Acelerar" />
    </children>
 </AnchorPane>
