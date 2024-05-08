@@ -5,21 +5,31 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+
+import java.awt.*;
+import java.beans.PropertyChangeSupport;
 import java.util.Random;
 
 public class Vehiculo extends ImageView {
+
+    private PropertyChangeSupport changeSupport;
 
     private double velocidadX;
     private double velocidadMaxima = 10.0;
     private boolean enMovimiento = false;
     private Random random = new Random();
     private AnimationTimer timer;
+    private String nombre;
+    private boolean ganado;
 
-    public Vehiculo(String rutaImagen, AnchorPane root) {
+    public Vehiculo(String rutaImagen, String nombre) {
         super(rutaImagen);
+        changeSupport = new PropertyChangeSupport(this);
+        this.nombre = nombre;
         setVelocidadAleatoria();
         this.setFitWidth(150);
         this.setFitHeight(75);
+        this.ganado = false;
     }
 
     void setVelocidadAleatoria() {
@@ -34,17 +44,18 @@ public class Vehiculo extends ImageView {
                 public void handle(long now) {
                     double nextX = getLayoutX() + velocidadX;
                     double paneWidth = ((Pane)getParent()).getWidth();
-                    // Check if the next X position is within the screen bounds
+                    // Comprobamos si la siguiente posicion esta dentro del panel
                     if (nextX + getImage().getWidth() >= paneWidth) {
                         setLayoutX(paneWidth - getImage().getWidth());
                         System.out.println(nextX);
+                        ganado = true;
                         detener();
                     } else {
-                        // Adjust X position to ensure the vehicle doesn't go beyond the screen edge
+                        //Ajustamos para que el vehiculo no salga de la pantalla
                         setLayoutX(nextX);
                     }
-                    // Randomly accelerate the vehicle
-                        if (random.nextInt(100) < 1) { // Adjust probability as needed (5% chance here)
+                    // Aceleramos el coche
+                        if (random.nextInt(100) < 1) { // Ajustamos la probabilidad de acelerar
                             acelerar();
                         }
                 }
@@ -54,26 +65,18 @@ public class Vehiculo extends ImageView {
     }
 
     public void acelerar() {
-        velocidadX += random.nextDouble() * 3; // Randomly increase velocity (0 to 2)
+        velocidadX += random.nextDouble() * 3; // Incrementamos la velocidad
         System.out.println(velocidadX);
         if (velocidadX > velocidadMaxima) {
             velocidadX = velocidadMaxima;
         }
     }
 
-    public void frenar() {
-        velocidadX -= 1.0;
-        if (velocidadX < 0) {
-            velocidadX = 0;
-        }
-    }
-
-
     // Método para detener el vehículo
     public void detener() {
         velocidadX = 0;
         enMovimiento = false;
-        if (timer != null) { // Check if timer is initialized before stopping
+        if (timer != null) { // Comprobar si el timer se ha parado
             timer.stop();
         }
     }
@@ -100,5 +103,48 @@ public class Vehiculo extends ImageView {
 
     public void setEnMovimiento(boolean enMovimiento) {
         this.enMovimiento = enMovimiento;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public AnimationTimer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(AnimationTimer timer) {
+        this.timer = timer;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public PropertyChangeSupport getChangeSupport() {
+        return changeSupport;
+    }
+
+    public void setChangeSupport(PropertyChangeSupport changeSupport) {
+        this.changeSupport = changeSupport;
+    }
+
+    public boolean isGanado() {
+        return ganado;
+    }
+
+    public void setGanado(boolean ganado) {
+        boolean oldGanado = this.ganado;
+        this.ganado = ganado;
+
+        changeSupport.firePropertyChange("ganado", oldGanado, ganado);
     }
 }
