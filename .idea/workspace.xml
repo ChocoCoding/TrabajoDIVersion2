@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ee94bcb-00fb-416e-84d1-71a67b1b754c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CochePropertyChangeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CarrerasApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CarrerasApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CarrerasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CarrerasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CochePropertyChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/CochePropertyChangeListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/Vehiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cocheconproperties/Vehiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cocheconproperties/vista-carreras.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cocheconproperties/vista-carreras.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/coche3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/coche3.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +50,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/a16gonzalocd/IdeaProjects/FichaProperty",
-    "project.structure.last.edited": "Artifacts",
+    "last_opened_file_path": "C:/Users/gonza/IdeaProjects/TrabajoDIVersion2",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.47471264"
   }

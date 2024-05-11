@@ -11,7 +11,7 @@ class CochePropertyChangeListener implements PropertyChangeListener {
         Object newValue = evt.getNewValue ();
 
 
-        System.out.println(propertyName);
+        System.out.println(propertyName  + "ha cambiado");
         System.out.println(oldValue);
         System.out.println(newValue);
     }

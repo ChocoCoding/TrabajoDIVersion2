@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cocheconproperties.CarrerasController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cocheconproperties.CarrerasController">
    <children>
-      <Button fx:id="btnStart" layoutX="227.0" layoutY="426.0" mnemonicParsing="false" onAction="#onStartButtonClicked" text="Start" />
-      <Button fx:id="btnRestart" layoutX="656.0" layoutY="426.0" mnemonicParsing="false" onAction="#onRestartButtonClicked" text="Restart" />
-      <Label layoutX="463.0" layoutY="41.0" text="Primera posición: ">
+      <Button fx:id="btnStart" layoutX="187.0" layoutY="626.0" mnemonicParsing="false" onAction="#onStartButtonClicked" text="Start" />
+      <Button fx:id="btnRestart" layoutX="616.0" layoutY="626.0" mnemonicParsing="false" onAction="#onRestartButtonClicked" text="Restart" />
+      <Label fx:id="txtSaldo" layoutX="982.0" layoutY="44.0" text="Saldo: ">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnStop" layoutX="366.0" layoutY="426.0" mnemonicParsing="false" onAction="#onStopButtonClicked" text="Stop" />
-      <Button fx:id="btnAcelerar" layoutX="505.0" layoutY="426.0" mnemonicParsing="false" onAction="#onAcelerarButtonClicked" text="Acelerar" />
+      <Button fx:id="btnStop" layoutX="326.0" layoutY="626.0" mnemonicParsing="false" onAction="#onStopButtonClicked" text="Stop" />
+      <Button fx:id="btnAcelerar" layoutX="465.0" layoutY="626.0" mnemonicParsing="false" onAction="#onAcelerarButtonClicked" text="Acelerar" />
+      <Button fx:id="seleccionarCoches" layoutX="864.0" layoutY="626.0" mnemonicParsing="false" onAction="#onSeleccionarCoches" text="Seleccionar Coches" />
+      <ImageView fx:id="imgTienda" fitHeight="128.0" fitWidth="97.0" layoutX="875.0" layoutY="28.0" onMouseClicked="#onTiendaClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/carrito.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>

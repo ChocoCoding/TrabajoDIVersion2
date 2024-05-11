@@ -1,12 +1,9 @@
 package com.example.cocheconproperties;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-
-import java.awt.*;
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Random;
 
@@ -21,9 +18,12 @@ public class Vehiculo extends ImageView {
     private AnimationTimer timer;
     private String nombre;
     private boolean ganado;
+    private String rutaImagen;
+    private Integer precio;
 
     public Vehiculo(String rutaImagen, String nombre) {
         super(rutaImagen);
+        this.rutaImagen = rutaImagen;
         changeSupport = new PropertyChangeSupport(this);
         this.nombre = nombre;
         setVelocidadAleatoria();
@@ -37,6 +37,7 @@ public class Vehiculo extends ImageView {
     }
 
     public void mover() {
+        this.ganado = false;
         if (!enMovimiento) {
             enMovimiento = true;
             timer = new AnimationTimer() {
@@ -48,8 +49,7 @@ public class Vehiculo extends ImageView {
                     if (nextX + getImage().getWidth() >= paneWidth) {
                         setLayoutX(paneWidth - getImage().getWidth());
                         System.out.println(nextX);
-                        ganado = true;
-                        detener();
+                        setGanado(true);
                     } else {
                         //Ajustamos para que el vehiculo no salga de la pantalla
                         setLayoutX(nextX);
@@ -72,11 +72,10 @@ public class Vehiculo extends ImageView {
         }
     }
 
-    // Método para detener el vehículo
     public void detener() {
         velocidadX = 0;
         enMovimiento = false;
-        if (timer != null) { // Comprobar si el timer se ha parado
+        if (timer != null) {
             timer.stop();
         }
     }
@@ -146,5 +145,28 @@ public class Vehiculo extends ImageView {
         this.ganado = ganado;
 
         changeSupport.firePropertyChange("ganado", oldGanado, ganado);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+
+    public Integer getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
     }
 }
