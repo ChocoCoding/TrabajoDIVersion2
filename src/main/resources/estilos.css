@@ -18,8 +18,17 @@ Button {
 #btnRestart {-fx-background-color: #ff9800;}
 #btnRestart:hover {-fx-background-color: #e68a55;}
 
-#btnAcelerar {-fx-background-color: #007bff;;}
+#btnAcelerar {-fx-background-color: #007bff;}
 #btnAcelerar:hover {-fx-background-color: #0b7dda;}
 
 #btnStop {-fx-background-color: #f44336;}
 #btnStop:hover {-fx-background-color: #da190b}
+
+#btnSeleccionarCoches{
+-fx-background-color: #007bff;
+-fx-color:white;
+}
+
+#btnSeleccionarCoches:hover{
+-fx-background-color: #0b7dda;
+}

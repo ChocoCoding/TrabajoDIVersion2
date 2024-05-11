@@ -16,7 +16,7 @@
       </Label>
       <Button fx:id="btnStop" layoutX="326.0" layoutY="626.0" mnemonicParsing="false" onAction="#onStopButtonClicked" text="Stop" />
       <Button fx:id="btnAcelerar" layoutX="465.0" layoutY="626.0" mnemonicParsing="false" onAction="#onAcelerarButtonClicked" text="Acelerar" />
-      <Button fx:id="seleccionarCoches" layoutX="864.0" layoutY="626.0" mnemonicParsing="false" onAction="#onSeleccionarCoches" text="Seleccionar Coches" />
+      <Button fx:id="btnSeleccionarCoches" layoutX="864.0" layoutY="626.0" mnemonicParsing="false" onAction="#onSeleccionarCoches" text="Seleccionar Coches" />
       <ImageView fx:id="imgTienda" fitHeight="128.0" fitWidth="97.0" layoutX="875.0" layoutY="28.0" onMouseClicked="#onTiendaClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../img/carrito.png" />

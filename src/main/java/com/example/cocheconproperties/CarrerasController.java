@@ -20,10 +20,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CarrerasController implements Initializable, PropertyChangeListener {
     @FXML
@@ -58,10 +55,9 @@ public class CarrerasController implements Initializable, PropertyChangeListener
     private Vehiculo vehiculo2;
     private Vehiculo cocheSeleccionado;
     private boolean primero;
-    private String rutaCoche1 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png";
-    private String rutaCoche2 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png";
+    private Image rutaCoche1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche1.png")));
 
-    private String rutaCocheDefault = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche6.png";
+    private Image rutaCocheDefault = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche6.png")));
 
     private Integer saldo = 500;
 
@@ -72,8 +68,6 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         inicializarCochesDisponibles();
 
 
-        String rutaAbsoluta = new File("coche1.png").getAbsolutePath();
-        System.out.println(rutaAbsoluta);
         vehiculo1 = new Vehiculo(rutaCoche1,"coche1");
         vehiculo2 = new Vehiculo(rutaCocheDefault,"coche2");
         double startY = 200;
@@ -151,7 +145,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
         // Agregar imágenes de vehículos al contenedor
         for (Vehiculo vehiculo : cochesDisponibles) {
-            ImageView imageView = new ImageView(new Image(vehiculo.getRutaImagen()));
+            ImageView imageView = new ImageView(vehiculo.getImage());
             imageView.setFitWidth(100);
             imageView.setFitHeight(100);
 
@@ -176,8 +170,10 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     private void inicializarCochesDisponibles() {
         cochesDisponibles = new ArrayList<>();
-        String rutaCoche1 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png";
-        String rutaCoche2 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png";
+        //String rutaCoche1 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png";
+        //String rutaCoche2 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png";
+        Image rutaCoche1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche1.png")));
+        Image rutaCoche2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche6.png")));
 
         Vehiculo coche1 = new Vehiculo(rutaCoche1,"coche1");
         Vehiculo coche2 = new Vehiculo(rutaCoche2,"coche2");
@@ -188,9 +184,9 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     private void inicializarImagenesTienda() {
         cochesTienda = new ArrayList<>();
-        String rutaCoche3 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche3.png";
-        String rutaCoche4 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche4.png";
-        String rutaCoche5 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche5.png";
+        Image rutaCoche3 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche3.png")));
+        Image rutaCoche4 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche4.png")));
+        Image rutaCoche5 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche5.png")));
 
         Vehiculo coche3 = new Vehiculo(rutaCoche3,"coche3");
         coche3.setPrecio(300);
@@ -246,7 +242,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         Platform.runLater(() -> {
             vehiculo1.detener();
             vehiculo2.detener();
-            ImageView imageView = new ImageView(new Image("C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\v.jpg"));
+            ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/v.jpg"))));
             imageView.setFitWidth(500); // ajusta el ancho de la imagen
             imageView.setFitHeight(300); // ajusta la altura de la imagen
 
@@ -268,7 +264,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         Platform.runLater(() -> {
             vehiculo1.detener();
             vehiculo2.detener();
-            ImageView imageView = new ImageView(new Image("C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\l.jpg"));
+            ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/l.jpg"))));
             imageView.setFitWidth(500); // ajusta el ancho de la imagen
             imageView.setFitHeight(300); // ajusta la altura de la imagen
 

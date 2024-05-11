@@ -1,6 +1,7 @@
 package com.example.cocheconproperties;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import java.beans.PropertyChangeListener;
@@ -18,12 +19,10 @@ public class Vehiculo extends ImageView {
     private AnimationTimer timer;
     private String nombre;
     private boolean ganado;
-    private String rutaImagen;
     private Integer precio;
 
-    public Vehiculo(String rutaImagen, String nombre) {
-        super(rutaImagen);
-        this.rutaImagen = rutaImagen;
+    public Vehiculo(Image image, String nombre) {
+        super(image);
         changeSupport = new PropertyChangeSupport(this);
         this.nombre = nombre;
         setVelocidadAleatoria();
@@ -154,13 +153,6 @@ public class Vehiculo extends ImageView {
         changeSupport.removePropertyChangeListener(listener);
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
-    }
-
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
-    }
 
     public Integer getPrecio() {
         return precio;

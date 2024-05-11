@@ -1,5 +1,21 @@
 
-~
-java:S1128"6Remove this unused import 'javafx.animation.Timeline'.(˜‰ë÷øÿÿÿÿ8Õøãóò1J$f2cf60ba-f055-4787-a518-7bed40614a28
-}
-java:S1128	"5Remove this unused import 'javafx.scene.layout.Pane'.(êÄƒÄşÿÿÿÿ8Öøãóò1J$e19a8419-8d24-45a5-a110-da4eb3c2a9da
+
+java:S1192H"GDefine a constant instead of duplicating this literal "coche2" 3 times.(œÆí®ÿÿÿÿÿ8Ü¦Ãö1J$01beefdc-826e-4e14-9ca4-480feacfe03d
+
+java:S1192G"GDefine a constant instead of duplicating this literal "coche1" 3 times.(ÿ¯—øÿÿÿÿ8Ü¦Ãö1J$b49757ec-77fc-4a25-948e-f44da13637da
+
+java:S1192U"HDefine a constant instead of duplicating this literal "Saldo: " 4 times.(ÒÅ£æùÿÿÿÿ8Ü¦Ãö1J$d4b71c3e-6e56-4331-bdc8-05378e1165b8
+˜
+java:S2259„"OA "NullPointerException" could be thrown; "cocheSeleccionado" is nullable here.(ÏÉÈøÿÿÿÿ8ü¦Ãö1J$75a3e532-5a4e-437b-b1f2-b864aef0cf90
+s	java:S106"+Replace this use of System.out by a logger.(­‹“Âúÿÿÿÿ8…¦Ãö1J$fda8a818-0ad9-4ad0-8d47-9e44c1e6eced
+s	java:S106„"+Replace this use of System.out by a logger.(ÏÉÈøÿÿÿÿ8…¦Ãö1J$b941f1da-4105-4f52-b8a6-06c87a5e234b
+‚
+java:S1117¯">Rename "rutaCoche1" which hides the field declared at line 58.(×§©½8¦Ãö1J$eec01312-737f-4ecf-881e-b578f85ae6a5
+„	java:S125­"<This block of commented-out lines of code should be removed.(š¿ôŠıÿÿÿÿ8¦Ãö1J$96f58a5d-26a9-49a9-8417-d9644da12991
+n	java:S106­"+Replace this use of System.out by a logger.(¿ãĞï8•¦Ãö1J$d32f54de-0395-498c-beb2-6c221ab3e71c
+s	java:S106®"+Replace this use of System.out by a logger.(×Í’œøÿÿÿÿ8•¦Ãö1J$c6630992-91d0-43ea-933c-7137cd971a6f
+n	java:S106¯"+Replace this use of System.out by a logger.(š´è8•¦Ãö1J$9f4cab5d-cdc4-4977-a063-482448a838fb
+l
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8™¦Ãö1J$910ffe3c-ff00-4579-9113-1495d51bf0a4
+n
+java:S10689"+Remove this unused "primero" private field.(¯ë‹8™¦Ãö1J$dcc7d73c-30f9-4a15-bec1-27632c7c77de
