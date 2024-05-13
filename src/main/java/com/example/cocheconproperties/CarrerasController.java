@@ -15,34 +15,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.File;
 import java.net.URL;
 import java.util.*;
 
 public class CarrerasController implements Initializable, PropertyChangeListener {
     @FXML
     private AnchorPane root;
-    @FXML
-    private ImageView imageViewCoche1;
-    @FXML
-    private ImageView imageViewCoche2;
+
     @FXML
     private Button btnStart;
-    @FXML
-    private Button btnRestart;
-    @FXML
-    private Button btnAcelerar;
-    @FXML
-    private Button btnStop;
-
-    @FXML
-    private ImageView imgTienda;
-
-    @FXML
-    private Button btnSeleccionarCoches;
 
     @FXML
     private Label txtSaldo;
@@ -54,10 +37,9 @@ public class CarrerasController implements Initializable, PropertyChangeListener
     private Vehiculo vehiculo1;
     private Vehiculo vehiculo2;
     private Vehiculo cocheSeleccionado;
-    private boolean primero;
-    private Image rutaCoche1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche1.png")));
 
-    private Image rutaCocheDefault = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche6.png")));
+    private final Image rutaCoche1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche1.png")));
+    private final Image rutaCocheDefault = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche6.png")));
 
     private Integer saldo = 500;
 
@@ -85,22 +67,19 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         txtSaldo.setText("Saldo: " + saldo + "€");
     }
 
-    private void mostrarSeleccionCoche() {
+    private void elegirCocheGanador() {
         cocheSeleccionado = null;
         ImageView imagenCoche1 = new ImageView(vehiculo1.getImage());
         ImageView imagenCoche2 = new ImageView(vehiculo2.getImage());
 
-        // Creamos el botón "Start"
         ButtonType botonSeleccionarCoche = new ButtonType("Seleccionar Coche");
         Alert alert = new Alert(Alert.AlertType.NONE, "", botonSeleccionarCoche);
         alert.setTitle("Seleccionar Coche");
         alert.setHeaderText("Elige tu coche:");
 
-        // Creamos un VBox para contener los ImageViews de los coches
         VBox vBox = new VBox();
         vBox.getChildren().addAll(imagenCoche1, imagenCoche2);
 
-        // Creamos un HBox para contener el VBox y agregar un espacio entre las imágenes
         HBox hBox = new HBox();
         hBox.getChildren().addAll(vBox);
 
@@ -111,12 +90,11 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         // Creamos los botones para seleccionar el coche
         ButtonType botonCoche1 = new ButtonType("coche1");
         ButtonType botonCoche2 = new ButtonType("coche2");
-        alert.getButtonTypes().setAll(botonCoche1, botonCoche2, ButtonType.CANCEL);
+        alert.getButtonTypes().setAll(botonCoche1, botonCoche2);
 
-        // Mostramos el Alert y esperamos a que se seleccione una opción
+
         Optional<ButtonType> resultado = alert.showAndWait();
 
-        // Verificamos qué opción se seleccionó y actualizamos la variable cocheSeleccionado
         try {
             resultado.ifPresent(buttonType -> {
                 if (buttonType == botonCoche1) {
@@ -128,32 +106,26 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         }catch (Exception e){
             System.out.println("No has seleccionado ningun coche");
         }
-        // Mostramos el coche seleccionado en consola
+        assert cocheSeleccionado != null;
         System.out.println("Coche seleccionado: " + cocheSeleccionado.getNombre());
     }
 
 
     @FXML
     public void onSeleccionarCoches(){
-        // Crear ventana de selección de vehículos
         Stage ventanaSeleccion = new Stage();
         ventanaSeleccion.setTitle("Seleccionar Vehículo");
 
-        // Crear contenedor para las imágenes de los vehículos
         VBox contenedorVehiculos = new VBox();
         contenedorVehiculos.setSpacing(10);
 
-        // Agregar imágenes de vehículos al contenedor
         for (Vehiculo vehiculo : cochesDisponibles) {
             ImageView imageView = new ImageView(vehiculo.getImage());
             imageView.setFitWidth(100);
             imageView.setFitHeight(100);
 
-            // Agregar evento de clic a la imagen del vehículo
             imageView.setOnMouseClicked(event -> {
-                // Mover el vehículo seleccionado de cochesTienda a cochesDisponibles
                 vehiculo1.setImage(vehiculo.getImage());
-                // Cerrar la ventana de selección
                 ventanaSeleccion.close();
             });
 
@@ -170,8 +142,6 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     private void inicializarCochesDisponibles() {
         cochesDisponibles = new ArrayList<>();
-        //String rutaCoche1 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche1.png";
-        //String rutaCoche2 = "C:\\Users\\gonza\\IdeaProjects\\TrabajoDIVersion2\\src\\main\\resources\\img\\coche2.png";
         Image rutaCoche1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche1.png")));
         Image rutaCoche2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/coche6.png")));
 
@@ -204,7 +174,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
     @FXML
     private void onStartButtonClicked() {
         if (cocheSeleccionado == null){
-            mostrarSeleccionCoche();
+            elegirCocheGanador();
         }
         vehiculo1.mover();
         vehiculo2.mover();
@@ -243,8 +213,8 @@ public class CarrerasController implements Initializable, PropertyChangeListener
             vehiculo1.detener();
             vehiculo2.detener();
             ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/v.jpg"))));
-            imageView.setFitWidth(500); // ajusta el ancho de la imagen
-            imageView.setFitHeight(300); // ajusta la altura de la imagen
+            imageView.setFitWidth(500);
+            imageView.setFitHeight(300);
 
             VBox vBox = new VBox();
             vBox.getChildren().addAll(imageView);
@@ -261,12 +231,13 @@ public class CarrerasController implements Initializable, PropertyChangeListener
     }
 
     public void mostrarAlertDerrota(){
+        //Metodo para ejecutar el alert una vez termine la transicion
         Platform.runLater(() -> {
             vehiculo1.detener();
             vehiculo2.detener();
             ImageView imageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/l.jpg"))));
-            imageView.setFitWidth(500); // ajusta el ancho de la imagen
-            imageView.setFitHeight(300); // ajusta la altura de la imagen
+            imageView.setFitWidth(500);
+            imageView.setFitHeight(300);
 
 
             VBox vBox = new VBox();
@@ -295,7 +266,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
             mostrarAlertVictoria();
 
         }else {
-           mostrarAlertDerrota();
+            mostrarAlertDerrota();
         }
 
         System.out.println(propertyName  + vehiculo.getNombre());
@@ -308,13 +279,11 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         Stage ventanaSeleccion = new Stage();
         ventanaSeleccion.setTitle("Tienda de Coches");
 
-        // Crear contenedor para las imágenes de los vehículos
         VBox contenedorVehiculos = new VBox();
         contenedorVehiculos.setSpacing(30);
 
-        // Agregar imágenes de vehículos al contenedor
         for (Vehiculo vehiculo : cochesTienda) {
-            HBox contenedorCoche = new HBox(); // Contenedor para imagen y precio
+            HBox contenedorCoche = new HBox();
             contenedorCoche.setAlignment(Pos.CENTER_LEFT);
             contenedorCoche.setSpacing(10);
 
@@ -341,15 +310,13 @@ public class CarrerasController implements Initializable, PropertyChangeListener
             labelPrecio.setAlignment(Pos.CENTER);
 
             contenedorCoche.setAlignment(Pos.CENTER);
-            // Agregar imagen y precio al contenedor
+
             contenedorCoche.getChildren().addAll(imageView, labelPrecio);
 
-            // Agregar contenedor al contenedor principal de vehículos
             contenedorVehiculos.getChildren().add(contenedorCoche);
 
         }
 
-        // Crear una escena y mostrar la ventana de selección de vehículos
         Scene escena = new Scene(contenedorVehiculos, 400, 600);
         ventanaSeleccion.setScene(escena);
         ventanaSeleccion.show();
@@ -357,14 +324,14 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     public void mostrarAlertCompra() {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("COMPRA");
-            alert.setHeaderText("Enorabuena por tu compra");
+            alert.setTitle("Compra");
+            alert.setHeaderText("Tienes un nuevo vehículo en tu inventario");
             alert.showAndWait();
     }
 
     public void mostrarAlertSaldoInsuficiente() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("SALDO INSUFICIENTE");
+        alert.setTitle("Saldo insuficiente");
         alert.setHeaderText("No tienes dinero para comprar este coche");
         alert.showAndWait();
     }
