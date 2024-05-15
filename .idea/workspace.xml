@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ee94bcb-00fb-416e-84d1-71a67b1b754c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cocheconproperties/vista-carreras.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cocheconproperties/vista-carreras.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

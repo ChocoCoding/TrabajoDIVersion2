@@ -15,11 +15,11 @@ Button {
 #btnStart:hover {-fx-background-color: #46a049;}
 
 
-#btnRestart {-fx-background-color: #ff9800;}
-#btnRestart:hover {-fx-background-color: #e68a55;}
+#btnRestart {-fx-background-color: #007bff;}
+#btnRestart:hover {-fx-background-color: #0b7dda;}
 
-#btnAcelerar {-fx-background-color: #007bff;}
-#btnAcelerar:hover {-fx-background-color: #0b7dda;}
+#btnAcelerar {-fx-background-color: #ff9800;}
+#btnAcelerar:hover {-fx-background-color: #e68a55;}
 
 #btnStop {-fx-background-color: #f44336;}
 #btnStop:hover {-fx-background-color: #da190b}
