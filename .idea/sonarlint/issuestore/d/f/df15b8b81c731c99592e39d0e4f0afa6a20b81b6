@@ -1,14 +1,20 @@
 
-i
-java:S11926"GDefine a constant instead of duplicating this literal "coche2" 3 times.(œÆí®ÿÿÿÿÿ8öğ«–÷1
-i
-java:S11925"GDefine a constant instead of duplicating this literal "coche1" 3 times.(ÿ¯—øÿÿÿÿ8÷ğ«–÷1
-j
-java:S1192C"HDefine a constant instead of duplicating this literal "Saldo: " 4 times.(ÒÅ£æùÿÿÿÿ8÷ğ«–÷1
-L	java:S106k"+Replace this use of System.out by a logger.(­‹“Âúÿÿÿÿ8Èñ«–÷1
-L	java:S106n"+Replace this use of System.out by a logger.(ÏÉÈøÿÿÿÿ8Èñ«–÷1
-\
-java:S1117‘">Rename "rutaCoche1" which hides the field declared at line 41.(×§©½8ÄèÊ–÷1
-H	java:S106"+Replace this use of System.out by a logger.(¿ãĞï8›¡Ñ–÷1
-M	java:S106‘"+Replace this use of System.out by a logger.(×Í’œøÿÿÿÿ8œ¡Ñ–÷1
-H	java:S106’"+Replace this use of System.out by a logger.(š´è8œ¡Ñ–÷1
+
+java:S1192="GDefine a constant instead of duplicating this literal "coche2" 3 times.(œÆí®ÿÿÿÿÿ8‚ûûƒø1J$2a9a3ea2-ee8c-4021-be46-68a89283cfe5
+
+java:S1192<"GDefine a constant instead of duplicating this literal "coche1" 3 times.(ÿ¯—øÿÿÿÿ8‚ûûƒø1J$55697559-7d18-40dc-9346-69993a4c50a8
+
+java:S1192L"HDefine a constant instead of duplicating this literal "Saldo: " 4 times.(ÒÅ£æùÿÿÿÿ8‚ûûƒø1J$8fa380a4-7c64-48e5-ad73-140d54f66a7b
+r	java:S106u"+Replace this use of System.out by a logger.(­‹“Âúÿÿÿÿ8§ûûƒø1J$66c1452f-67e7-41dc-9900-42c8d0d77517
+r	java:S106x"+Replace this use of System.out by a logger.(ÏÉÈøÿÿÿÿ8§ûûƒø1J$882aac4d-0968-436b-85b0-bde202c905de
+‚
+java:S1117›">Rename "rutaCoche1" which hides the field declared at line 49.(×§©½8­ûûƒø1J$5d407438-69f6-4b08-9de2-7fdf508fc252
+n	java:S106š"+Replace this use of System.out by a logger.(¿ãĞï8´ûûƒø1J$ed5f05ee-dff5-4699-8fb3-31544955771e
+s	java:S106›"+Replace this use of System.out by a logger.(×Í’œøÿÿÿÿ8µûûƒø1J$1b251c65-7c69-4c81-8425-ed2ebc31b4d4
+n	java:S106œ"+Replace this use of System.out by a logger.(š´è8µûûƒø1J$d59bce3b-e215-4ebd-aadc-6f9f5415c355
+p
+java:S1172æ",Remove this unused method parameter "title".(ßä¦û8›‚ıƒø1J$33cf2c44-bdf5-455d-a4b0-18481f420bbf
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8ÕÀÉ„ø1
+S
+java:S1128"6Remove this unused import 'java.awt.event.MouseEvent'.(›õ8ÖÀÉ„ø1

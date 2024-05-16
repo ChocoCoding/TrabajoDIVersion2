@@ -1,7 +1,9 @@
 package com.example.cocheconproperties;
 
+import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +17,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.net.URL;
@@ -29,6 +34,9 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     @FXML
     private Label txtSaldo;
+
+    @FXML
+    private ImageView imgTienda;
 
     private List<Vehiculo> cochesDisponibles;
     private List<Vehiculo> cochesTienda;
@@ -49,15 +57,16 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         inicializarImagenesTienda();
         inicializarCochesDisponibles();
 
-
         vehiculo1 = new Vehiculo(rutaCoche1,"coche1");
         vehiculo2 = new Vehiculo(rutaCocheDefault,"coche2");
-        double startY = 200;
-        double spacing = 10;
+
+        double startY = 220;
+        double espacio = 150;
+
         vehiculo1.setTranslateX(10);
         vehiculo1.setTranslateY(startY);
         vehiculo2.setTranslateX(10);
-        vehiculo2.setTranslateY(startY + 150 + spacing);
+        vehiculo2.setTranslateY(startY + espacio);
 
         vehiculo1.addPropertyChangeListener(this);
         vehiculo2.addPropertyChangeListener(this);
@@ -73,6 +82,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         ImageView imagenCoche2 = new ImageView(vehiculo2.getImage());
 
         ButtonType botonSeleccionarCoche = new ButtonType("Seleccionar Coche");
+
         Alert alert = new Alert(Alert.AlertType.NONE, "", botonSeleccionarCoche);
         alert.setTitle("Seleccionar Coche");
         alert.setHeaderText("Elige tu coche:");
@@ -272,7 +282,30 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         System.out.println(propertyName  + vehiculo.getNombre());
         System.out.println(oldValue);
         System.out.println(newValue);
+
     }
+
+
+    @FXML
+    private void onTiendaEntered(){
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), imgTienda);
+        scaleTransition.setFromX(1);
+        scaleTransition.setFromY(1);
+        scaleTransition.setToX(1.2);
+        scaleTransition.setToY(1.2);
+        scaleTransition.playFromStart();
+    }
+
+    @FXML
+    private void onTiendaExited() {
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), imgTienda);
+        scaleTransition.setFromX(1.2);
+        scaleTransition.setFromY(1.2);
+        scaleTransition.setToX(1);
+        scaleTransition.setToY(1);
+        scaleTransition.play();
+    }
+
 
     @FXML
     private void onTiendaClicked(){
@@ -300,9 +333,9 @@ public class CarrerasController implements Initializable, PropertyChangeListener
                     cochesTienda.remove(vehiculo);
                     cochesDisponibles.add(vehiculo);
                     ventanaSeleccion.close();
-                    mostrarAlertCompra();
+                    mostrarAlert("Compra","Tienes un nuevo vehiculo");
                 }else {
-                    mostrarAlertSaldoInsuficiente();
+                    mostrarAlert("Saldo Insuficiente","No tienes saldo suficiente");
                 }
             });
 
@@ -322,17 +355,11 @@ public class CarrerasController implements Initializable, PropertyChangeListener
         ventanaSeleccion.show();
     }
 
-    public void mostrarAlertCompra() {
+    public void mostrarAlert(String title,String text) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Compra");
-            alert.setHeaderText("Tienes un nuevo vehículo en tu inventario");
+            alert.setHeaderText(text);
             alert.showAndWait();
     }
 
-    public void mostrarAlertSaldoInsuficiente() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Saldo insuficiente");
-        alert.setHeaderText("No tienes dinero para comprar este coche");
-        alert.showAndWait();
-    }
 }

@@ -13,7 +13,7 @@ public class Vehiculo extends ImageView {
     private PropertyChangeSupport changeSupport;
 
     private double velocidadX;
-    private double velocidadMaxima = 10.0;
+    private double velocidadMaxima = 5.0;
     private boolean enMovimiento = false;
     private Random random = new Random();
     private AnimationTimer timer;
@@ -23,12 +23,13 @@ public class Vehiculo extends ImageView {
 
     public Vehiculo(Image image, String nombre) {
         super(image);
+        this.ganado = false;
         changeSupport = new PropertyChangeSupport(this);
         this.nombre = nombre;
         setVelocidadAleatoria();
         this.setFitWidth(150);
         this.setFitHeight(75);
-        this.ganado = false;
+
     }
 
     void setVelocidadAleatoria() {
@@ -46,15 +47,15 @@ public class Vehiculo extends ImageView {
                     double paneWidth = ((Pane)getParent()).getWidth();
                     // Comprobamos si la siguiente posicion esta dentro del panel
                     if (nextX + getImage().getWidth() >= paneWidth) {
-                        setLayoutX(paneWidth - getImage().getWidth());
+                        setLayoutX(paneWidth - getImage().getWidth());  //Ajustamos para que el vehiculo no salga de la pantalla
+
                         System.out.println(nextX);
                         setGanado(true);
                     } else {
-                        //Ajustamos para que el vehiculo no salga de la pantalla
                         setLayoutX(nextX);
                     }
                     // Aceleramos el coche
-                        if (random.nextInt(100) < 1) { // Ajustamos la probabilidad de acelerar
+                        if (random.nextInt(100) < 3) { // Ajustamos la probabilidad de acelerar
                             acelerar();
                         }
                 }
@@ -64,11 +65,9 @@ public class Vehiculo extends ImageView {
     }
 
     public void acelerar() {
-        velocidadX += random.nextDouble() * 3; // Incrementamos la velocidad
+        velocidadX += random.nextDouble() * 1.1; // Incrementamos la velocidad
         System.out.println(velocidadX);
-        if (velocidadX > velocidadMaxima) {
-            velocidadX = velocidadMaxima;
-        }
+
     }
 
     public void detener() {

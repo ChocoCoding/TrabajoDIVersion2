@@ -1,4 +1,7 @@
 
-@	java:S106"+Replace this use of System.out by a logger.(»¹ïØ
-E	java:S106"+Replace this use of System.out by a logger.(×Í’œøÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(š´è
+b
+java:S1854	"@Remove this useless assignment to local variable "propertyName".(ñ¥¥éşÿÿÿÿ8’åÀ‚ø1
+S
+java:S1481	"1Remove this unused "propertyName" local variable.(ñ¥¥éşÿÿÿÿ8•åÀ‚ø1
+k	java:S106"+Replace this use of System.out by a logger.(×Í’œøÿÿÿÿJ$207cfd3d-df27-4e47-b6e2-146fe87b8204
+f	java:S106"+Replace this use of System.out by a logger.(š´èJ$35eb41f9-fd15-4e61-871e-b3ce5cbdaa53
