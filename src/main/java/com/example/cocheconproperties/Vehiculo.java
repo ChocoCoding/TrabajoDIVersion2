@@ -32,7 +32,7 @@ public class Vehiculo extends ImageView {
 
     }
 
-    void setVelocidadAleatoria() {
+    public void setVelocidadAleatoria() {
         velocidadX = Math.random() * velocidadMaxima;
     }
 

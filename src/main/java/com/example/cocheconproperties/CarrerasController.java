@@ -357,7 +357,7 @@ public class CarrerasController implements Initializable, PropertyChangeListener
 
     public void mostrarAlert(String title,String text) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Compra");
+            alert.setTitle(title);
             alert.setHeaderText(text);
             alert.showAndWait();
     }
